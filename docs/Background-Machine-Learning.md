@@ -5,12 +5,27 @@ learning background, this page provides an overview to facilitate the
 understanding of ML-Agents. However, We will not attempt to provide a thorough 
 treatment of machine learning as there are fantastic resources online.
 
+考虑到：ML-Agents的一些用户可能没有正规的机器学习背景，为了促进ML-Agents的理解这页提供了一个
+概述。
+
+然而，因为网上有极好的资源，我们就不打算尝试提供机器学习彻底的论述。
+
 Machine learning, a branch of artificial intelligence, focuses on learning 
 patterns from data. The three main classes of machine learning algorithms
 include: unsupervised learning, supervised learning and reinforcement learning. 
 Each class of algorithm learns from a different type of data. The following 
 paragraphs provide an overview for each of these classes of machine learning, 
-as well as introductory examples. 
+as well as introductory examples.
+
+机器学习，是人工智能的分支，着重于从数据中习得模式。
+
+三种主要的机器学习算法包括：无监督学习，监督学习和强化学习。
+
+每一类不同的算法从不同类型的数据中学习。
+
+下面的段落为机器学习的每一个种类提供了概述，还提供介绍性例子。
+
+
 
 ## Unsupervised Learning
 
@@ -27,10 +42,24 @@ number of levels completed. We can then feed this data set (three attributes
 for every player) to an unsupervised learning algorithm where we specify the 
 number of groups to be two. The algorithm would then split the data set of
 players into two groups where the players within each group would be similar
-to each other. Given the attributes we used to describe each player, in this
+to each other.  Given the attributes we used to describe each player, in this
 case, the output would be a split of all the players into two groups, where 
 one group would semantically represent the engaged players and the second
 group would semantically represent the unengaged players.
+
+无监监督学习的目的是将数据集中的相似项分类或者聚类。
+
+举个例子，考虑游戏中的玩家。
+
+根据他们在游戏中的投入程度，我们可能想将玩家分类。这将使我们能标出不同的组。
+
+比如说，我们想要将玩家分进两个组。
+
+首先，我们要明确玩家们的基本属性，如：游戏时长，游戏总花费和通关数量。
+然后，我们为用来分组的无监督学习算法，提供包含这些属性的数据集。
+然后，算法将玩家的数据集分成两组，每组中项相似。
+
+鉴于我们用来描述玩家的属性，在本例中，所有玩家将被分为两组，一组代表高投入玩家，一组代表低投入玩家。
 
 With unsupervised learning, we did not provide specific examples of which
 players are considered engaged and which are considered unengaged. We just
@@ -40,6 +69,19 @@ unlabeled data set as it is lacking these direct labels. Consequently,
 unsupervised learning can be helpful in situations where these labels can be
 expensive or hard to produce. In the next paragraph, we overview supervised 
 learning algorithms which accept input labels in addition to attributes.
+
+在无监督学习中，我们不明确提供哪一个玩家可以被认为是高投入玩家，哪一个玩家可以被认为是
+低频率玩家的例子。
+
+我们只定义合适的属性和依赖算法本身来发现两个分组。
+
+因为缺少直接的标签，这种类型的数据集被称为无标签数据集。
+
+所以，无监督学习在标签昂贵和产生困难的场景中非常有用。
+
+在下一段中，我们将概述监督学习，它除了加入属性，还接受标签输入。
+
+
 
 ## Supervised Learning
 
@@ -63,9 +105,27 @@ who spend very little and play for very short periods will most likely churn).
 Now given this learned model, we can provide it the attributes of a
 new player (one that recently started playing the game) and it would output
 a _predicted_ label for that player. This prediction is the algorithms
-expectation of whether the player will churn or not.
-We can now use these predictions to target the players
+expectation of whether the player will churn or not.We can now use these predictions to target the players
 who are expected to churn and entice them to continue playing the game.
+
+在监督学习中，我们并不想只将相似项分类，还想直接习得每一项到它所属组的映射。
+
+返回我们较早的玩家聚类的例子，比如说我们现在想要预测玩家中谁将停止游戏。
+
+我们可以查找我们的历史记录，并且并且创建一个包含玩家属性和表明玩家是否会停止游戏标签的数据集。
+
+注意：我们用于预测玩家是停止游戏的属性，可能与之前聚类任务的不同。
+
+然后，我们将数据集提供给监督学习算法，其将产生一个从玩家属性到标签指示结果的映射。
+
+直接的理解是：监督学习算法将习得属性中哪一个值与将要停止游戏的玩家相关。
+
+现在给出这个学习模型，我们可以提供一个新玩家的属性，它可以产生一个标签预测。
+
+这个预测是玩家是否会停止游戏的算法期望。
+
+现在，我们可以使用这个预测，来标出可能会停止游戏的玩家，并激励他们继续游戏。
+
 
 As you may have noticed, for both supervised and unsupervised learning, there
 are two tasks that need to be performed: attribute selection and model
@@ -76,8 +136,19 @@ algorithm (and its parameters) that perform the task well. Both of these
 tasks are active areas of machine learning research and, in practice, require
 several iterations to achieve good performance.
 
+正如你可能注意到的，监督学习和无监督学都需要完成两个任务：属性选择和模型选择。
+
+属性选择是关于选择如何表示利益实体，本例中，为玩家。
+
+另一方面，模型选择是关于选择算法和参数，使任务表现良好。
+
+这两个任务都是机器学习的活跃领域，在实践中，需要几次迭代来达到最好的性能。
+
 We now switch to reinforcement learning, the third class of
 machine learning algorithms, and arguably the one most relevant for ML-Agents.
+
+现在，我们转向强化学习，第三种机器学习算法，ML-Agents最相关的算法。
+
 
 ## Reinforcement Learning
 
